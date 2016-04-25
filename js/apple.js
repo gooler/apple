@@ -43,18 +43,18 @@ $(function(){
             })
 
         })
+//轮播函数
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
 
 
-    //alert(w)
-    //if(w<760){
-    //    $(this).click(function(){
-    //        if(flag1){
-    //            $ul.eq(i).show();
-    //            flag1=false;
-    //        }else {
-    //            $ul.eq(i).hide();
-    //            flag1=true;
-    //        }
-    //})
 
 })

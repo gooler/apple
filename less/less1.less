@@ -1,0 +1,77 @@
+
+@import "vai.less";
+
+.container{
+  &{
+    display: block;
+    height:auto;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    padding-left: @padding;
+    padding-right: @padding;
+  }
+  &-fluid{
+    display: block;
+    height:auto;
+    padding-left: @padding;
+    padding-right: @padding;
+  }
+   .row,&-fluid .row{
+    display: block;
+    margin-left: -@padding;
+    margin-right: -@padding;
+    //height:auto;
+  }
+  .row:after,&-fluid .row:after{
+    content: "";
+    display: block;
+    clear: both;
+    font-size:0;
+    line-height: 0;
+  }
+}
+.grid(@type,@i:1) when(@i<=@cols){
+  .col-@{type}-@{i}{
+    width:100%/@cols*@i;
+    display: block;
+    float: left;
+    padding-left: @padding;
+    padding-right: @padding;
+  }
+  .grid(@type,@i+1);
+}
+.grid(xs);
+.g(@width,@name){
+  @media screen and (min-width:
+    @width){
+    .container{
+      width: @width - @padding*2;
+    }
+    .grid(@name);
+  }
+}
+.g(@smscreen,sm);
+.g(@mdscreen,md);
+.g(@lgscreen,lg);
+@media screen and(max-width: 768px) {
+    .hidden-xs{
+      display: none;
+    }
+}
+@media screen and(min-width: 768px) and(max-width: 1000px) {
+  .hidden-sm{
+    display: none;
+  }
+}
+@media screen and(min-width: 1000px)and(max-width: 1200px) {
+  .hidden-md{
+    display: none;
+  }
+}
+@media screen and(min-width: 1200px) {
+  .hidden-lg{
+    display: none;
+  }
+}
+
+

@@ -8,6 +8,16 @@ $(function(){
     var $ul=$('.footer ul');
     var flag1=true;
     var w=document.documentElement.clientWidth;
+    function preDefault(e){
+    if ( e && e.preventDefault ) {//如果提供了事件对象，则这是一个非IE浏览器
+
+    e.preventDefault();            //阻止默认浏览器动作(W3C)
+    }
+    else{            //IE中阻止函数器默认动作的方式
+    window.event.returnValue = false;
+    }
+    return false;
+};
     $minNavL.click(function(){
         if(flag){
             $maxNav.css({display:'block'})
@@ -49,7 +59,7 @@ $(function(){
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         paginationClickable: true,
-        spaceBetween: 30,
+        spaceBetween: 0,
         centeredSlides: true,
         autoplay: 2500,
         autoplayDisableOnInteraction: false
